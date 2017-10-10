@@ -26,3 +26,17 @@ describe('largestPrimeFactor', function() {
     // expect(euler.largestPrimeFactor(600851475143)).toEqual(6857);
   });
 });
+
+describe('isPal', function() {
+  it('should tell if a number is a palendrome', function() {
+    var euler = new Euler();
+    expect(euler.isPal(1001)).toEqual(true);
+  })
+})
+
+describe('largestPal', function() {
+  it('should tell if a number is the largest pal', function() {
+    var euler = new Euler();
+    expect(euler.largestPal()).toEqual(906609);
+  })
+})
