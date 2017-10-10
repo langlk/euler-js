@@ -32,7 +32,6 @@ Euler.prototype.largestPrimeFactor = function (number) {
   var i = 2;
   while (i < target) {
     while (target % i === 0) {
-      console.log('target is ' + target + ' and is divisible by ' + i);
       target = target/i;
     }
     i++;
@@ -112,9 +111,18 @@ Euler.prototype.smallestMultiple = function(number) {
       allFactors = allFactors.concat(toAdd);
     }
   }
-  console.log(allFactors)
   return allFactors.reduce((a, b) => a * b);
 }
+
+Euler.prototype.sumSquareDifference = function (max) {
+  var squareSum = 0;
+  var sumSquared = 0;
+  for (var i = 1; i <= max; i++) {
+    squareSum += (i * i);
+    sumSquared += i;
+  }
+  return Math.abs(squareSum - (sumSquared * sumSquared));
+};
 
 exports.eulerModule = Euler;
 
@@ -123,7 +131,7 @@ var Euler = require('./../js/euler.js').eulerModule;
 
 $(document).ready(function() {
   var euler = new Euler();
-  console.log(euler.isPrime(4));
+  console.log(euler.sumSquareDifference(100));
 });
 
 },{"./../js/euler.js":1}]},{},[2]);

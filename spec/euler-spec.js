@@ -54,3 +54,10 @@ describe('smallestMultiple', function() {
     expect(euler.smallestMultiple(20)).toEqual(232792560);
   });
 });
+
+describe('smallestMultiple', function() {
+  it('should return the smallest number divisible by all numbers from one to number, inclusive', function() {
+    var euler = new Euler();
+    expect(euler.sumSquareDifference(100)).toEqual(25164150);
+  });
+});
