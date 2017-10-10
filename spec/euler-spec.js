@@ -61,3 +61,10 @@ describe('smallestMultiple', function() {
     expect(euler.sumSquareDifference(100)).toEqual(25164150);
   });
 });
+
+describe('enthPrime', function() {
+  it('should find the largest prime', function() {
+    var euler = new Euler();
+    expect(euler.enthPrime(6)).toEqual(13);
+  })
+})

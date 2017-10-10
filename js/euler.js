@@ -123,4 +123,17 @@ Euler.prototype.sumSquareDifference = function (max) {
   return Math.abs(squareSum - (sumSquared * sumSquared));
 };
 
+
+Euler.prototype.enthPrime = function (num) {
+  var prime = 0;
+  var i = 2;
+  while (prime < num){
+    if (this.isPrime(i)){
+      prime++;
+    }
+    i++;
+  }
+  return i - 1;
+};
+
 exports.eulerModule = Euler;
