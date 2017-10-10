@@ -19,7 +19,7 @@ Euler.prototype.evenFibonacci = function () {
 };
 
 Euler.prototype.isPrime = function(number) {
-  for (var i = 2; i < (number / 2); i++) {
+  for (var i = 2; i < number; i++) {
     if (number % i === 0) {
       return false;
     }
@@ -74,6 +74,48 @@ Euler.prototype.largestPal = function() {
   }
 }
 
+Euler.prototype.factors = function (number) {
+  if(this.isPrime(number)) {
+    return [number];
+  } else {
+    var factors = [];
+    var target = number;
+    var i = 2;
+    while (i < target) {
+      if (target % i === 0) {
+        factors = factors.concat(this.factors(i));
+        factors = factors.concat(this.factors(target/i));
+        return factors;
+      }
+      i++;
+    }
+    return factors;
+  }
+};
+
+Euler.prototype.smallestMultiple = function(number) {
+  var allFactors = [];
+  for (var i = 1; i <= number; i++) {
+    if (this.isPrime(i)) {
+      allFactors.push(i);
+    } else {
+      var factors = this.factors(i)
+      var currentProduct = allFactors.reduce((a, b) => a * b);
+      var toAdd = [];
+      for (var j = 0; j < factors.length; j++) {
+        if (currentProduct % factors[j] != 0) {
+          toAdd.push(factors[j]);
+        } else {
+          currentProduct = currentProduct / factors[j];
+        }
+      }
+      allFactors = allFactors.concat(toAdd);
+    }
+  }
+  console.log(allFactors)
+  return allFactors.reduce((a, b) => a * b);
+}
+
 exports.eulerModule = Euler;
 
 },{}],2:[function(require,module,exports){
@@ -81,7 +123,7 @@ var Euler = require('./../js/euler.js').eulerModule;
 
 $(document).ready(function() {
   var euler = new Euler();
-  euler.largestPal();
+  console.log(euler.isPrime(4));
 });
 
 },{"./../js/euler.js":1}]},{},[2]);

@@ -31,12 +31,26 @@ describe('isPal', function() {
   it('should tell if a number is a palendrome', function() {
     var euler = new Euler();
     expect(euler.isPal(1001)).toEqual(true);
-  })
-})
+  });
+});
 
 describe('largestPal', function() {
   it('should tell if a number is the largest pal', function() {
     var euler = new Euler();
     expect(euler.largestPal()).toEqual(906609);
-  })
-})
+  });
+});
+
+describe('factors', function() {
+  it('should return the prime factors of a number', function() {
+    var euler = new Euler();
+    expect(euler.factors(20)).toEqual([2, 2, 5]);
+  });
+});
+
+describe('smallestMultiple', function() {
+  it('should return the smallest number divisible by all numbers from one to number, inclusive', function() {
+    var euler = new Euler();
+    expect(euler.smallestMultiple(20)).toEqual(232792560);
+  });
+});
